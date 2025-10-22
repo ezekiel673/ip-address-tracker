@@ -2,27 +2,28 @@ function InfoBox({ ipData }) {
   const { ip, isp, location } = ipData
 
   return (
-    <div className="bg-white shadow-lg p-6 rounded-xl flex flex-wrap justify-around text-center z-10 relative -mt-12 w-11/12 mx-auto">
+    <div className="info-box flex flex-wrap justify-between items-center w-11/12 md:w-3/4 mx-auto text-center md:text-left bg-white p-6">
       <div>
-        <h2 className="text-xs text-gray-500">IP ADDRESS</h2>
-        <p className="font-bold text-lg">{ip}</p>
+        <h2>IP ADDRESS</h2>
+        <p>{ip}</p>
       </div>
       <div>
-        <h2 className="text-xs text-gray-500">LOCATION</h2>
-        <p className="font-bold text-lg">
-          {location.city}, {location.region} {location.postalCode}
+        <h2>LOCATION</h2>
+        <p>
+          {location?.city}, {location?.region} {location?.postalCode}
         </p>
       </div>
       <div>
-        <h2 className="text-xs text-gray-500">TIMEZONE</h2>
-        <p className="font-bold text-lg">UTC {location.timezone}</p>
+        <h2>TIMEZONE</h2>
+        <p>UTC {location?.timezone}</p>
       </div>
       <div>
-        <h2 className="text-xs text-gray-500">ISP</h2>
-        <p className="font-bold text-lg">{isp}</p>
+        <h2>ISP</h2>
+        <p>{isp}</p>
       </div>
     </div>
   )
 }
 
 export default InfoBox
+

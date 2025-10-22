@@ -1,6 +1,7 @@
 {
   "name": "ip-address-tracker-master",
   "version": "1.0.0",
+  "type": "module",
   "description": "![Design preview for the IP address tracker coding challenge](./design/desktop-preview.jpg)",
   "main": "index.js",
   "scripts": {
@@ -20,10 +21,11 @@
     "react-leaflet": "^5.0.0"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.15",
     "@vitejs/plugin-react": "^5.0.4",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.14",
+    "tailwindcss": "^4.1.15",
     "vite": "^7.1.10"
   }
 }

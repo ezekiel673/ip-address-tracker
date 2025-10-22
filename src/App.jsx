@@ -11,7 +11,7 @@ function App() {
   const fetchIP = async (ip = '') => {
     try {
       const res = await axios.get(
-        `https://geo.ipify.org/api/v2/country?apiKey=at_iujGxqzgd4iITXhUCYFruJxwoa8AI&ipAddress=8.8.8.8`
+        `https://geo.ipify.org/api/v2/country,city?apiKey=at_iujGxqzgd4iITXhUCYFruJxwoa8AI&ipAddress=${ip}`
       )
       setIpData(res.data)
     } catch (error) {
@@ -20,24 +20,25 @@ function App() {
   }
 
   useEffect(() => {
-    fetchIP() // get user IP on load
+    fetchIP() // get user's IP on load
   }, [])
 
   const handleSearch = (e) => {
     e.preventDefault()
-    fetchIP(query)
+    if (query.trim() !== '') fetchIP(query)
   }
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="flex flex-col min-h-screen">
       <Header query={query} setQuery={setQuery} handleSearch={handleSearch} />
       {ipData && <InfoBox ipData={ipData} />}
       {ipData?.location?.lat && ipData?.location?.lng && (
-        <MapView lat={ipData.location.lat} lng={ipData.location.lng} />)
-      }
-
+        <MapView lat={ipData.location.lat} lng={ipData.location.lng} />
+      )}
     </div>
   )
 }
 
 export default App
+
+
