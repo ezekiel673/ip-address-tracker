@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply font-body text-ink antialiased;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-signal-bright ring-offset-2 ring-offset-signal-deep;
+  }
+}
+
+/* Leaflet ships its own stylesheet with !important-heavy resets; these overrides
+   keep the map from fighting the app's border-radius / z-index choices. */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  font-family: theme("fontFamily.body");
+  z-index: 0;
+}
+
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 10;
+}
+
+.ip-marker {
+  filter: drop-shadow(0 6px 10px rgba(22, 26, 69, 0.35));
+}
